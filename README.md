@@ -1,1 +1,5 @@
-# training-v2
+#コンテナイメージをビルド
+docker compose build
+
+#コンテナ立ち上げ
+docker compose up
