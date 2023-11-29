@@ -9,12 +9,17 @@ export const RouterConfig = () => {
   return (
     <BrowserRouter>
       <Header />
-      <AppLayout>
-        <Routes>
-          <Route path="/" element={<Top />} />
-          <Route path="/UserList" element={<UserList />} />
-        </Routes>
-      </AppLayout>
+      <Routes>
+        <Route path="/" element={<Top />} />
+        <Route
+          path="/UserList"
+          element={
+            <AppLayout>
+              <UserList />
+            </AppLayout>
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 };
