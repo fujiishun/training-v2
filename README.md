@@ -12,3 +12,8 @@ docker compose exec api rails db:migrate
 
 #シードデータ適用
 docker compose exec api rails db:seed
+
+#コンテナに入るコマンド
+docker compose exec front bash
+docker compose exec api bash
+docker compose exec db bash

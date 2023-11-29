@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Hoge from "../components/user/Hoge";
+import UserList from "../components/user/UserList";
 import Top from "../components/common/Top";
 
 export const RouterConfig = () => {
@@ -8,7 +8,7 @@ export const RouterConfig = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Top />} />
-          <Route path="/Hoge" element={<Hoge />} />
+          <Route path="/Hoge" element={<UserList />} />
         </Routes>
       </BrowserRouter>
     </>
