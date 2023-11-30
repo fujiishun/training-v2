@@ -10,7 +10,6 @@ export default function UserList() {
     getUserList()
       .then((data) => {
         setUsers(data);
-        console.log(data);
       })
       .catch((error) => {
         console.error(`Error: ${error}`);
@@ -18,16 +17,18 @@ export default function UserList() {
   }, []);
 
   return (
-    <div className="Hoge">
-      <p>Hogeページ</p>
+    <div className="user-list">
+      <div className="title">
+        <p>ユーザー一覧</p>
+      </div>
       {users.map((user) => (
         <div key={user.id} className="user-card">
           <div className="user-details">
-            <div className="user-name-kana">
-              <p className="user-name">
+            <div className="user-name">
+              <p className="name">
                 {user.family_name} {user.given_name}
               </p>
-              <p className="user-kana">
+              <p className="name-kana">
                 {user.family_name_kana} {user.given_name_kana}
               </p>
             </div>
