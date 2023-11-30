@@ -1,19 +1,19 @@
-import axiosInstance from "../../axiosInstance";
+import authInstance from "../../http/authInstance";
 import Cookies from "js-cookie";
 
 // サインアップ
 export const signUp = (params: { [key: string]: unknown }) => {
-  return axiosInstance.post("/auth", params);
+  return authInstance.post("/", params);
 };
 
 // サインイン
 export const signIn = (params: { [key: string]: unknown }) => {
-  return axiosInstance.post("/auth/sign_in", params);
+  return authInstance.post("/sign_in", params);
 };
 
 // サインアウト
 export const signOut = () => {
-  return axiosInstance.delete("/auth/sign_out", {
+  return authInstance.delete("/sign_out", {
     headers: {
       "access-token": Cookies.get("_access_token"),
       client: Cookies.get("_client"),
@@ -31,7 +31,7 @@ export const getCurrentUser = () => {
   )
     return;
 
-  return axiosInstance.get("/auth/sessions", {
+  return authInstance.get("/sessions", {
     headers: {
       "access-token": Cookies.get("_access_token"),
       client: Cookies.get("_client"),

@@ -3,6 +3,6 @@ class Auth::RegistrationsController < DeviseTokenAuth::RegistrationsController
   
     def sign_up_params
       # サインアップ時に登録できるカラムを指定
-      params.permit(:name, :email, :password, :password_confirmation)
+      params.require(:registration).permit(:name, :email, :password, :password_confirmation)
     end
   end
