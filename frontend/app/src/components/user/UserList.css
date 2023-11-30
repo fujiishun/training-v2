@@ -1,0 +1,34 @@
+.Hoge {
+  margin-left: 10px;
+  width: 100%;
+}
+
+.user-card {
+  width: 25%;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.user-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-name-kana {
+  margin-right: 10px;
+}
+
+.user-name,
+.user-kana {
+  margin: 0;
+}
+
+.user-description {
+  margin: 0;
+  padding-left: 30px;
+  flex-grow: 1;
+}
