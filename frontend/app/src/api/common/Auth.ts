@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 // サインアップ
 export const signUp = (params: { [key: string]: unknown }) => {
-  return authInstance.post("/", params);
+  return authInstance.post("/", params, { timeout: 5000 });
 };
 
 // サインイン

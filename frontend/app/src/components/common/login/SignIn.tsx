@@ -48,6 +48,7 @@ export const SignIn = () => {
         timerId = setTimeout(closeModalAndNavigate, 5000);
       }
     } catch (e) {
+      alert("ログインに失敗しました。入力情報をご確認ください。");
       console.log(e);
     }
   };
