@@ -1,7 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const Header = () => {
+import { AuthContext } from "../../../App";
+import { signOut } from "../../../api/common/Auth";
+
+export const Header = () => {
+  // @ts-ignore
+  const { currentUser, setIsSignedIn, setCurrentUser } =
+    useContext(AuthContext);
   const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
 
@@ -46,7 +52,7 @@ const Header = () => {
           }}
         />
         <span className="me-2" style={{ marginRight: "10px" }}>
-          山田 太郎
+          {currentUser ? currentUser.name : "ログインしてください"}
         </span>
         <button
           className="btn btn-secondary dropdown-toggle"
@@ -71,17 +77,28 @@ const Header = () => {
           >
             <Link
               className="dropdown-item"
-              to="/signin"
+              to="/SignIn"
               style={{ display: "block", padding: "10px" }}
+              onClick={() => {
+                setShowMenu(false);
+              }}
             >
-              サインイン
+              ログイン
             </Link>
             <Link
               className="dropdown-item"
-              to="/"
+              to="/SignIn"
               style={{ display: "block", padding: "10px" }}
+              onClick={async () => {
+                const response = await signOut();
+                if (response?.status === 200) {
+                  setIsSignedIn(false);
+                  setCurrentUser(null);
+                  setShowMenu(false);
+                }
+              }}
             >
-              サインアウト
+              ログアウト
             </Link>
           </div>
         )}
