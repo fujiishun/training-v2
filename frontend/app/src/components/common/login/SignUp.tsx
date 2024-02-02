@@ -25,7 +25,7 @@ export const SignUp = () => {
   };
 
   const validateForm = () => {
-    const emailPattern = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+    const emailPattern = /^[\w-]+(\.[\w-]+)*(\+[\w-]*)?@([\w-]+\.)+[a-zA-Z]{2,7}$/;
     const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
     if (!emailPattern.test(email)) {
